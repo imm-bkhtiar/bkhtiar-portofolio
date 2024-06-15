@@ -2,6 +2,18 @@ const hamburgerMenu = document.querySelector('nav .hamburgerMenu');
 const menu = document.querySelector('nav .navMenu');
 const button = document.querySelector('.hero button');
 
+document.addEventListener('DOMContentLoaded', (ev) => {
+  document.querySelectorAll('.navMenu a[href]')
+    .forEach(el => {
+      el.addEventListener('click', function (e) {
+        e.preventDefault()
+        const hash = this.getAttribute('href')
+        location.replace(hash)
+        console.log(hash)
+      })
+    })
+})
+
 hamburgerMenu.addEventListener('click', function (e) {
   menu.classList.toggle('active')
   hamburgerMenu.classList.toggle('active')

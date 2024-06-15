@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
   margin: 0;
   padding: 0;
@@ -292,4 +293,300 @@ nav .navMenu.active {
 .footer .footerNav a {
   font-weight: lighter;
   margin: .2rem;
+=======
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: futura;
+}
+
+:root {
+  --clrPrimary: #007681;
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: futura;
+  src: url(font/futura/FuturaPTMedium.otf) format(opentype);
+}
+
+@font-face {
+  font-family: futuraBold;
+  src: url(font/futura/FuturaPTExtraBold.otf) format(opentype);
+}
+
+@font-face {
+  font-family: futuraMedium;
+  src: url(font/futura/FuturaPTExtraBold.otf) format(opentype);
+}
+
+/* display flex */
+nav,
+nav .navMenu,
+.hero,
+.project,
+.skill,
+.skill .container,
+.contact,
+.contact label,
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* h2 font size */
+.hero,
+.project,
+.skill,
+.contact {
+  padding: 6rem 1rem;
+}
+
+.project h2,
+.skill h2,
+.contact h2 {
+  font-size: 1.8rem;
+  font-family: futuraBold;
+}
+
+
+/* nvabar */
+nav {
+  background-color: var(--clrPrimary);
+  color: #ffffff;
+  justify-content: space-between;
+  padding: .5rem 1.5rem;
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  flex-direction: inherit;
+}
+
+nav h2 {
+  font-size: 2rem;
+  font-family: futuraBold;
+  font-style: italic;
+}
+
+nav .hamburgerMenu {
+  transition: all 1s ease;
+}
+
+nav .hamburgerMenu a {
+  display: inline-block;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  margin: 0 .2rem;
+  rotate: 90deg;
+  font-size: 2rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+nav .hamburgerMenu.active {
+  rotate: 360deg;
+}
+
+nav .navMenu {
+  width: 50%;
+  height: 50vh;
+  background-color: #007681;
+  top: 0;
+  position: absolute;
+  right: 0;
+  justify-content: space-evenly;
+  margin-top: 1.5rem;
+  transform: translateX(100%);
+  transition: all 1s ease;
+  opacity: 0;
+  z-index: -1;
+}
+
+nav .navMenu a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+nav .navMenu a::after {
+  content: "";
+  display: block;
+  width: 50px;
+  padding: .2rem;
+  border-bottom: 1px solid #c2faff;
+  text-align: center;
+  transform: scaleX(0);
+  transition: .1s linear;
+}
+
+nav .navMenu a:hover::after {
+  transform: scaleX(1);
+}
+
+nav .navMenu.active {
+  display: flex;
+  right: 0;
+  transform: translateX(0);
+  opacity: 100;
+}
+
+/* navbar end */
+
+/* hero section */
+.hero {
+  gap: 1rem;
+}
+
+.hero img {
+  display: block;
+  width: 150px;
+  height: 200px;
+  background-color: #1d5f65;
+  border-radius: 10px;
+  margin-top: 1rem;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 5);
+}
+
+.hero div h3 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.hero div h3:nth-child(1) {
+  border-bottom: 1px solid #263132;
+  margin-top: .2rem;
+}
+
+.hero div h3:nth-child(2) {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+}
+
+.hero div button {
+  border: none;
+  background-color: #27767d;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 2px 2px 1px #0d454a;
+  margin-bottom: .5rem;
+}
+
+.hero div button:active {
+  box-shadow: none;
+  transform: translateX(2px);
+  transform: translateY(2px);
+  box-shadow: 0 0 1px #0d454a;
+}
+
+.hero div a {
+  display: block;
+  font-size: .7rem;
+  text-align: center;
+  color: var(--clrPrimary);
+}
+
+/* hero end */
+
+/* project */
+.project,
+.skill {
+  gap: 3rem;
+}
+
+.containerProject {
+  padding: 1rem;
+}
+
+.containerProject img {
+  display: block;
+  width: 320px;
+  height: 180px;
+  background-color: #0d454a;
+  margin: .5rem 0;
+  cursor: pointer;
+}
+
+.skill {
+  flex-direction: inherit;
+  flex-wrap: wrap;
+}
+
+.skill .container {
+  padding: 1rem;
+  gap: .5rem;
+}
+
+.skill .container img {
+  width: 5rem;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 5));
+}
+
+.skill .container p {
+  font-size: 1rem;
+  font-weight: 10px;
+}
+
+/* project end */
+
+/* contact */
+
+.contact {
+  background-color: var(--clrPrimary);
+  margin: auto;
+  color: #ffffff;
+  gap: 2rem;
+}
+
+.contact h2 {
+  margin-bottom: 2rem;
+}
+
+.contact label {
+  align-items: start;
+  font-size: 1.3rem;
+  gap: .2rem;
+}
+
+.contact label input,
+.contact label textarea {
+  width: 80vw;
+  padding: 5px;
+  font-size: 1rem;
+}
+
+.contact label textarea {
+  height: 25vh;
+}
+
+.footer,
+.footer p a,
+.footer .footerNav a {
+  color: #ffffff;
+  gap: .5rem;
+}
+
+.footer {
+  background-color: #0d454a;
+  padding: 2rem 1rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.footer .footerNav a {
+  font-weight: lighter;
+  margin: .2rem;
+>>>>>>> 3589a1ff34f9882c88d3c64074cc994f9007a4cf
 }

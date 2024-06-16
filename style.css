@@ -34,6 +34,7 @@ nav,
 nav .navMenu,
 .hero,
 .project,
+.containerProjects,
 .skill,
 .skill .container,
 .contact,
@@ -210,17 +211,23 @@ nav .navMenu.active {
   gap: 3rem;
 }
 
-.containerProject {
+.containerProjects {
   padding: 1rem;
+  gap: 1rem;
 }
 
-.containerProject img {
+
+.containerProjects .containerProject img {
   display: block;
   width: 320px;
   height: 180px;
   background-color: #0d454a;
   margin: .5rem 0;
   cursor: pointer;
+}
+
+.containerProject p {
+  font-weight: 1000;
 }
 
 .skill {
@@ -240,7 +247,7 @@ nav .navMenu.active {
 
 .skill .container p {
   font-size: 1rem;
-  font-weight: 10px;
+  font-weight: 1000;
 }
 
 /* project end */
@@ -292,3 +299,13 @@ nav .navMenu.active {
   font-weight: lighter;
   margin: .2rem;
 }
+
+/* media query  */
+/* Small laptops */
+/* @media (min-width: 1200px) {
+
+  /* CSS untuk small laptops */
+/* body {
+    background-color: black;
+  } */
+/* }  */

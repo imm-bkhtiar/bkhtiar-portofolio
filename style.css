@@ -155,9 +155,15 @@ nav .navMenu.active {
   width: 150px;
   height: 200px;
   background-color: #1d5f65;
-  border-radius: 10px;
+  border-radius: 10%;
   margin-top: 1rem;
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 5);
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 5);
+  transition: filter .5s ease;
+  filter: opacity(1);
+}
+
+.hero img.fadeOut {
+  filter: opacity(0);
 }
 
 .hero div h3 {
@@ -272,7 +278,7 @@ nav .navMenu.active {
 }
 
 .contact .map {
-  width: 80vw;
+  width: 85%;
   order: 2;
 }
 
@@ -293,13 +299,13 @@ nav .navMenu.active {
 
 .contact .input label input,
 .contact .input label textarea {
-  width: 80vw;
+  width: 100%;
   padding: 5px;
   font-size: 1rem;
 }
 
 .contact label textarea {
-  height: 25vh;
+  height: 25%;
 }
 
 .footer,
@@ -437,15 +443,15 @@ nav .navMenu.active {
 
   .contact .input label input,
   .contact .input label textarea {
-    width: 40vw;
+    width: 100%;
   }
 
   .contact .input label textarea {
-    height: 45vh;
+    height: 45%;
   }
 
   .contact .map {
-    width: 40vw;
+    width: 40%;
     height: 75vh;
     order: inherit;
   }

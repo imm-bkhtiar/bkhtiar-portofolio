@@ -150,20 +150,35 @@ nav .navMenu.active {
   gap: 1rem;
 }
 
-.hero img {
-  display: block;
+.hero .containerImg {
+  position: relative;
   width: 150px;
   height: 200px;
   background-color: #1d5f65;
   border-radius: 10%;
   margin-top: 1rem;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 5);
-  transition: filter .5s ease;
-  filter: opacity(1);
 }
 
-.hero img.fadeOut {
-  filter: opacity(0);
+.hero .containerImg img {
+  position: absolute;
+  width: 150px;
+  height: 200px;
+  border-radius: 10%;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.hero .containerImg img.fadeOut {
+  animation: fade 1s;
 }
 
 .hero div h3 {
@@ -376,8 +391,13 @@ nav .navMenu.active {
     padding: 6rem 3rem;
   }
 
-  .hero img {
+  .hero .containerImg {
     grid-area: foto;
+    width: 300px;
+    height: 400px;
+  }
+
+  .hero .containerImg img {
     width: 300px;
     height: 400px;
   }
@@ -394,14 +414,14 @@ nav .navMenu.active {
 
   .hero p {
     grid-area: paragraf;
-    margin-top: -8rem;
+    margin-top: -5rem;
     width: 80%;
     margin-bottom: 0;
   }
 
   .hero .cta {
     grid-area: cta;
-    margin-top: -10rem;
+    margin-top: -1rem;
   }
 
   .hero div a {

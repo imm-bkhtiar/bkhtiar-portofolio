@@ -1,7 +1,8 @@
 const hamburgerMenu = document.querySelector('nav .hamburgerMenu');
 const menu = document.querySelector('nav .navMenu');
 const button = document.querySelector('.hero button');
-const imgProfile = document.querySelector('.hero img')
+const imgProfile = document.querySelector('.hero .containerImg img');
+const containerProfileImg = document.querySelector('.hero .containerImg')
 const imgProfilePath = [
   'img/profilePictures/picture1.jpg',
   'img/profilePictures/picture2.jpg',
@@ -37,17 +38,12 @@ document.addEventListener('click', function (e) {
 })
 
 setInterval(() => {
-  imgProfile.classList.add("fadeOut")
-  console.log("transisi add")
-  setTimeout(() => {
-    imgProfile.setAttribute('src', imgProfilePath[i++])
-    console.log('img ganti')
-  }, 500)
-  setTimeout(() => {
-    imgProfile.classList.remove('fadeOut')
-    console.log('transisi terhapus')
-  }, 1000)
+  i++
   if (i === imgProfilePath.length) {
     i = 0
   }
+  const newImg = document.createElement('img');
+  newImg.src = imgProfilePath[i]
+  newImg.className = "fadeOut"
+  containerProfileImg.appendChild(newImg)
 }, 5000)

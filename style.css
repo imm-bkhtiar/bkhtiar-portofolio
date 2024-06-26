@@ -343,7 +343,7 @@ nav .navMenu.active {
 
 /* media query  */
 /* Small laptops */
-@media (min-width: 1024px) {
+@media (width >=1024px) {
 
   :root {
     font-size: 110%;

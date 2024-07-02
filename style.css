@@ -38,7 +38,8 @@ nav .navMenu,
 .containerProjects,
 .skill,
 .skill .container,
-.contact,
+.container,
+.contact .containerContact,
 .contact label,
 .footer {
   display: flex;
@@ -62,13 +63,12 @@ nav .navMenu,
   font-family: futuraBold;
 }
 
-
 /* nvabar */
 nav {
   background-color: var(--clrPrimary);
   color: #ffffff;
   justify-content: space-between;
-  padding: .5rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   z-index: 1;
   position: fixed;
   width: 100%;
@@ -89,7 +89,7 @@ nav .hamburgerMenu {
 }
 
 nav .hamburgerMenu img {
-  margin: 0 .2rem;
+  margin: 0 0.2rem;
   width: 3rem;
   height: 3rem;
   transition: all 1s ease;
@@ -125,11 +125,11 @@ nav .navMenu a::after {
   content: "";
   display: block;
   width: 50px;
-  padding: .2rem;
+  padding: 0.2rem;
   border-bottom: 1px solid #c2faff;
   text-align: center;
   transform: scaleX(0);
-  transition: .1s linear;
+  transition: 0.1s linear;
 }
 
 nav .navMenu a:hover::after {
@@ -188,7 +188,7 @@ nav .navMenu.active {
 
 .hero div h3:nth-child(1) {
   border-bottom: 1px solid #263132;
-  margin-top: .2rem;
+  margin-top: 0.2rem;
 }
 
 .hero div h3:nth-child(2) {
@@ -208,7 +208,7 @@ nav .navMenu.active {
   padding: 1rem;
   border-radius: 10px;
   box-shadow: 2px 2px 1px #0d454a;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .hero div button:active {
@@ -220,7 +220,7 @@ nav .navMenu.active {
 
 .hero div a {
   display: block;
-  font-size: .7rem;
+  font-size: 0.7rem;
   text-align: center;
   color: var(--clrPrimary);
 }
@@ -238,13 +238,12 @@ nav .navMenu.active {
   gap: 1rem;
 }
 
-
 .containerProjects .containerProject img {
   display: block;
   width: 320px;
   height: 180px;
   background-color: #0d454a;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
   cursor: pointer;
 }
 
@@ -264,7 +263,7 @@ nav .navMenu.active {
 
 .skill .container {
   padding: 1rem;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 .skill .container img {
@@ -285,16 +284,20 @@ nav .navMenu.active {
   background-color: var(--clrPrimary);
   margin: auto;
   color: #ffffff;
-  gap: 2rem;
+}
+
+.contact .contactContainer {
+  width: 80vw;
 }
 
 .contact h2 {
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .contact .map {
-  width: 85%;
   order: 2;
+  margin: 1rem;
 }
 
 .contact .map iframe {
@@ -309,7 +312,7 @@ nav .navMenu.active {
 .contact .input label {
   align-items: start;
   font-size: 1.3rem;
-  gap: .2rem;
+  gap: 0.2rem;
 }
 
 .contact .input label input,
@@ -323,28 +326,35 @@ nav .navMenu.active {
   height: 25%;
 }
 
+.contact .containerContact form button {
+  padding: 0.5rem;
+  width: 5rem;
+  height: 2.5rem;
+  margin: 0.2rem 0rem 1rem;
+  text-align: center;
+}
+
 .footer,
 .footer p a,
 .footer .footerNav a {
   color: #ffffff;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 .footer {
   background-color: #0d454a;
   padding: 2rem 1rem;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .footer .footerNav a {
   font-weight: lighter;
-  margin: .2rem;
+  margin: 0.2rem;
 }
 
 /* media query  */
 /* Small laptops */
 @media (width >=1024px) {
-
   :root {
     font-size: 110%;
   }
@@ -372,19 +382,20 @@ nav .navMenu.active {
     top: inherit;
     position: relative;
     right: 0;
-    margin: .5rem;
+    margin: 0.5rem;
     justify-content: space-between;
   }
 
   nav .navMenu a {
     font-size: 80%;
     text-align: center;
-    padding-top: .4rem;
+    padding-top: 0.4rem;
   }
 
   .hero {
     display: grid;
-    grid-template-areas: "foto nama"
+    grid-template-areas:
+      "foto nama"
       "foto paragraf"
       "foto cta";
     grid-template-columns: 1fr 2fr;
@@ -408,7 +419,7 @@ nav .navMenu.active {
 
   .hero div h3:nth-child(1) {
     border-bottom: none;
-    margin-top: .2rem;
+    margin-top: 0.2rem;
     text-align: center;
   }
 
@@ -421,7 +432,7 @@ nav .navMenu.active {
 
   .hero .cta {
     grid-area: cta;
-    margin-top: -1rem;
+    margin-top: -5rem;
   }
 
   .hero div a {
@@ -432,7 +443,6 @@ nav .navMenu.active {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 1.5rem;
-
   }
 
   .containerProject {
@@ -456,7 +466,7 @@ nav .navMenu.active {
     flex-wrap: wrap;
   }
 
-  .contact {
+  .contact .containerContact {
     flex-direction: row;
     flex-wrap: wrap;
   }
@@ -472,12 +482,11 @@ nav .navMenu.active {
 
   .contact .map {
     width: 40%;
-    height: 75vh;
+    height: 80vh;
     order: inherit;
   }
 
   .contact .map iframe {
     width: 100%;
   }
-
 }

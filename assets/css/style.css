@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: black;
+  text-decoration: none;
+}
+
+:root {
+  --warnaUtama: rgb(43, 89, 62);
+}
+
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.navContainer {
+  position: fixed;
+  margin: 1rem;
+  bottom: 2rem;
+  right: 1rem;
+}
+
+.navContainer > .navMenu {
+  position: absolute;
+  display: grid;
+  bottom: 0;
+  opacity: 0;
+  gap: 0.5rem;
+  transition: all 0.2s cubic-bezier(0.63, 0.03, 0.05, 1);
+}
+
+.navMenu > * {
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  background-color: var(--warnaUtama);
+  color: white;
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s cubic-bezier(0.63, 0.03, 0.05, 1);
+}
+
+.navContainer > .hamburgerMenu {
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--warnaUtama);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  rotate: 90deg;
+}
+
+.hamburgerMenu > * {
+  color: white;
+  word-spacing: -1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.navContainer > .navMenu.active,
+.navMenu.active a:nth-child(1),
+.navMenu.active a:nth-child(2),
+.navMenu.active a:nth-child(3),
+.navMenu.active a:nth-child(4) {
+  opacity: 1;
+}
+
+.navContainer > .navMenu.active,
+.navMenu.active a:nth-child(2) {
+  bottom: 5rem;
+}
+
+.navMenu.active a:nth-child(1) {
+  bottom: 15rem;
+}
+
+.navMenu.active a:nth-child(3) {
+  bottom: 10rem;
+}
+
+@keyframes active {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

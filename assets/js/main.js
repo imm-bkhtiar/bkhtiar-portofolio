@@ -1,7 +1,7 @@
 const hamburgerBtn = document.querySelector(".navContainer .hamburgerMenu");
 const navMenu = document.querySelector(".navContainer .navMenu");
 
-hamburgerBtn.addEventListener("click", () => {
+const navbarAction = hamburgerBtn.addEventListener("click", () => {
   navMenu.classList.toggle("active");
   hamburgerBtn.style.animation = "active 0.5s ease";
 
@@ -14,24 +14,23 @@ hamburgerBtn.addEventListener("click", () => {
   }
 });
 
-document.addEventListener("click", (e) => {
+const clickDiluarNavbar = document.addEventListener("click", (e) => {
   if (!navMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
     navMenu.classList.remove("active");
     hidden();
   }
 });
 
-document.addEventListener("scrollend", () => {
-  navMenu.parentElement.style.opacity = 1;
-  navMenu.parentElement.style.transform = "translateY(0)";
+const touchShow = document.addEventListener("touchend", () => {
+  navMenu.parentElement.classList.remove("hidden");
+  setTimeout(hidden, 5000);
 });
 
 const hidden = () => {
   setTimeout(() => {
     if (!navMenu.classList.contains("active")) {
       console.log("berhasil");
-      navMenu.parentElement.style.opacity = 0;
-      navMenu.parentElement.style.transform = "translateY(100%)";
+      navMenu.parentElement.classList.add("hidden");
     }
   }, 5000);
 };

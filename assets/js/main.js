@@ -17,13 +17,17 @@ const navbarAction = hamburgerBtn.addEventListener("click", () => {
 const clickDiluarNavbar = document.addEventListener("click", (e) => {
   if (!navMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
     navMenu.classList.remove("active");
-    hidden();
+    if (!window.innerWidth > 768) {
+      hidden();
+    }
   }
 });
 
 const touchShow = document.addEventListener("touchend", () => {
-  navMenu.parentElement.classList.remove("hidden");
-  setTimeout(hidden, 5000);
+  if (!window.innerWidth > 768) {
+    navMenu.parentElement.classList.remove("hidden");
+    setTimeout(hidden, 5000);
+  }
 });
 
 const hidden = () => {

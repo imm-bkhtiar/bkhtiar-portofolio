@@ -1,5 +1,6 @@
 const hamburgerBtn = document.querySelector(".navContainer .hamburgerMenu");
 const navMenu = document.querySelector(".navContainer .navMenu");
+let hiddenTimeOut;
 
 const navbarAction = hamburgerBtn.addEventListener("click", () => {
   navMenu.classList.toggle("active");
@@ -29,8 +30,6 @@ const touchShow = document.addEventListener("touchend", () => {
     setTimeout(hidden, 5000);
   }
 });
-
-let hiddenTimeOut;
 
 const hidden = () => {
   if (hiddenTimeOut) {

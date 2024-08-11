@@ -7,7 +7,10 @@
 }
 
 :root {
-  --warnaUtama: rgb(43, 89, 62);
+  --warna300: rgb(43, 89, 62);
+  --warna200: rgb(74, 150, 106);
+  --warna100: rgb(112, 232, 162);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -37,7 +40,7 @@ body {
   opacity: 0;
   position: absolute;
   bottom: 0;
-  background-color: var(--warnaUtama);
+  background-color: var(--warna200);
   color: white;
   display: inline-block;
   width: 4rem;
@@ -55,7 +58,7 @@ body {
   position: relative;
   width: 4rem;
   height: 4rem;
-  background-color: var(--warnaUtama);
+  background-color: var(--warna200);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,16 +85,16 @@ body {
 }
 
 .navContainer > .navMenu.active,
-.navMenu.active a:nth-child(2) {
+.navMenu.active a:nth-child(3) {
   bottom: 5rem;
+}
+
+.navMenu.active a:nth-child(2) {
+  bottom: 10rem;
 }
 
 .navMenu.active a:nth-child(1) {
   bottom: 15rem;
-}
-
-.navMenu.active a:nth-child(3) {
-  bottom: 10rem;
 }
 
 @keyframes active {
@@ -113,20 +116,57 @@ body {
 /* Content Start */
 .container {
   width: 100%;
-  padding: 1.5rem 0.5rem;
 }
 
-.container > .main {
+.container > .main,
+.container > .about {
   display: grid;
-  grid-template-columns: repeat(1fr);
+  grid-template-columns: 1fr;
+  padding: 2.5rem 0.5rem;
   justify-items: center;
-  text-align: center;
   gap: 1rem;
+  text-align: center;
 }
 
 .container > .main img {
-  background-color: var(--warnaUtama);
+  background-color: var(--warna200);
   display: inline-block;
+  object-fit: cover;
   width: 150px;
   height: 200px;
+  border-radius: 0.8rem;
+}
+
+.container > .main .namaDanProfesi h2 {
+  font-size: 2rem;
+}
+.container > .main .namaDanProfesi h4 {
+  font-size: 0.8rem;
+  width: 70%;
+  margin: auto;
+}
+
+.sosmed {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.container > .main > .sosmed img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.container a {
+  font-size: 0.7rem;
+  color: blue;
+  text-decoration: underline;
+}
+
+/* Container End */
+/* ----------------------------------------------------------- */
+/* About Start */
+
+.container > .about {
+  gap: 2rem;
 }

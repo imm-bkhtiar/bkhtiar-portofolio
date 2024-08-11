@@ -30,10 +30,14 @@ const touchShow = document.addEventListener("touchend", () => {
   }
 });
 
+let hiddenTimeOut;
+
 const hidden = () => {
-  setTimeout(() => {
+  if (hiddenTimeOut) {
+    clearTimeout(hiddenTimeOut);
+  }
+  hiddenTimeOut = setTimeout(() => {
     if (!navMenu.classList.contains("active")) {
-      console.log("berhasil");
       navMenu.parentElement.classList.add("hidden");
     }
   }, 5000);

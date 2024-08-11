@@ -119,7 +119,10 @@ body {
 }
 
 .container > .main,
-.container > .about {
+.container > .about,
+.container > .project,
+.container > .contact,
+.container > .footer {
   display: grid;
   grid-template-columns: 1fr;
   padding: 2.5rem 0.5rem;
@@ -128,13 +131,14 @@ body {
   text-align: center;
 }
 
-.container > .main img {
+.container img {
   background-color: var(--warna200);
   display: inline-block;
   object-fit: cover;
   width: 150px;
   height: 200px;
   border-radius: 0.8rem;
+  color: white;
 }
 
 .container > .main .namaDanProfesi h2 {
@@ -152,9 +156,12 @@ body {
 }
 
 .container > .main > .sosmed img {
+  background-color: rgba(0, 0, 0, 0);
   width: 2rem;
   height: 2rem;
-  border-radius: 50%;
+  border-radius: 5px;
+  margin: 0 0.2rem;
+  object-fit: cover;
 }
 
 .container a {
@@ -167,6 +174,82 @@ body {
 /* ----------------------------------------------------------- */
 /* About Start */
 
-.container > .about {
+.container > .abou,
+.container > .project,
+.container > .contact {
   gap: 2rem;
+}
+
+/* About End */
+/* -------------------------------------------------------- */
+/* Project Start */
+
+.container > .project > .list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  justify-items: center;
+}
+
+.container > .project img {
+  width: 160px;
+  height: 90px;
+}
+
+/* Project End */
+/* -------------------------------------------------------- */
+/* Contact Start */
+
+.container > .contact {
+  background-color: var(--warna100);
+  text-align: start;
+}
+
+form {
+  width: 80%;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+  color: var(--warna300);
+}
+
+form > button,
+form > label input,
+form > label textarea {
+  display: block;
+  margin: auto;
+  padding: 0.5rem;
+  color: white;
+  border-radius: 0.5rem;
+  background-color: var(--warna200);
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: white;
+}
+
+form > label input,
+form > label textarea {
+  width: 100%;
+}
+
+/* Contact End */
+/* -------------------------------------------------- */
+/* Footer Start */
+.container > .footer {
+  background-color: var(--warna200);
+}
+
+.footer a,
+.footer p {
+  color: white;
+  text-decoration: none;
 }

@@ -253,3 +253,45 @@ form > label textarea {
   color: white;
   text-decoration: none;
 }
+
+/* Footer End */
+/* ------------------------------------------------------ */
+/* Media Query */
+
+@media only screen and (min-width: 768px) {
+  * {
+    font-size: 100%;
+  }
+
+  body {
+    background-color: rgba(138, 255, 187, 0.5);
+  }
+
+  .container {
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    padding: 0.8rem;
+    border-radius: 0.2rem;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .container img {
+    background-color: var(--warna200);
+    display: inline-block;
+    object-fit: cover;
+    width: 150px;
+    height: 200px;
+    border-radius: 0.8rem;
+    color: white;
+  }
+
+  .container > .main > .sosmed img {
+    background-color: rgba(0, 0, 0, 0);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 5px;
+    margin: 0 0.2rem;
+    object-fit: cover;
+  }
+}

@@ -17,18 +17,21 @@ const navbarAction = hamburgerBtn.addEventListener("click", () => {
 
 const clickDiluarNavbar = document.addEventListener("click", (e) => {
   if (!navMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
-    if (window.screen.availWidth < 1204) {
-      navMenu.classList.remove("active");
-      hidden();
-    }
+    navMenu.classList.remove("active");
+    hidden();
   }
 });
 
 const touchShow = document.addEventListener("touchend", () => {
-  if (window.screen.availWidth < 1024) {
-    navMenu.parentElement.classList.remove("hidden");
-    setTimeout(hidden, 2000);
-  }
+  postActionHidden();
+});
+const scrollShow = document.addEventListener("scrollend", () => {
+  postActionHidden();
+});
+const clickAndHidden = navMenu.childNodes.forEach((menu) => {
+  menu.addEventListener("click", () => {
+    postActionHidden();
+  });
 });
 
 const hidden = () => {
@@ -40,4 +43,9 @@ const hidden = () => {
       navMenu.parentElement.classList.add("hidden");
     }
   }, 5000);
+};
+
+const postActionHidden = () => {
+  navMenu.parentElement.classList.remove("hidden");
+  setTimeout(hidden, 2000);
 };

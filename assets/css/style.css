@@ -141,6 +141,14 @@ body {
   color: white;
 }
 
+.container > .main > img {
+  background-image: linear-gradient(
+    to bottom left,
+    rgba(112, 232, 162, 0.5) 20%,
+    var(--warna200)
+  );
+}
+
 .container > .main .namaDanProfesi h2 {
   font-size: 2rem;
 }

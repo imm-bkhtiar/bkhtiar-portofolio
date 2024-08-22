@@ -25,7 +25,7 @@ const clickDiluarNavbar = document.addEventListener("click", (e) => {
 const touchShow = document.addEventListener("touchend", () => {
   postActionHidden();
 });
-const scrollShow = document.addEventListener("scrollend", () => {
+const scrollShow = document.addEventListener("scroll", () => {
   postActionHidden();
 });
 const clickAndHidden = navMenu.childNodes.forEach((menu) => {

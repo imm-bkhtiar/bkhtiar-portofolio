@@ -1,6 +1,14 @@
 const hamburgerBtn = document.querySelector(".navContainer .hamburgerMenu");
 const navMenu = document.querySelector(".navContainer .navMenu");
+const list = document.querySelector(".container .projects .list");
+const projects = document.querySelectorAll(".container .projects .list a");
+const skills = document.querySelectorAll(
+  ".container .skills .detail table tbody tr "
+);
 let hiddenTimeOut;
+let intervalautoScroll;
+let timeOutAutoScroll;
+list.prepend(projects[projects.length - 1]);
 
 const navbarAction = hamburgerBtn.addEventListener("click", () => {
   navMenu.classList.toggle("active");
@@ -49,3 +57,47 @@ const postActionHidden = () => {
   navMenu.parentElement.classList.remove("hidden");
   setTimeout(hidden, 2000);
 };
+
+const autoScroll = () => {
+  timeOutAutoScroll = setTimeout(() => {
+    list.scrollLeft += 268;
+    if (list.scrollLeft === 832) {
+      list.scrollLeft = 0;
+    }
+    clearTimeout(timeOutAutoScroll);
+    requestAnimationFrame(autoScroll);
+  }, 3000);
+};
+
+list.addEventListener("scrollend", (e) => {
+  clearInterval(intervalautoScroll);
+  if (timeOutAutoScroll) {
+    clearTimeout(timeOutAutoScroll);
+  }
+
+  if (list.scrollLeft === 0) {
+    const remove = list.removeChild(list.children[projects.length - 1]);
+    list.prepend(remove);
+  } else if (list.scrollLeft >= 564) {
+    const remove = list.removeChild(list.children[0]);
+    list.appendChild(remove);
+  }
+
+  timeOutAutoScroll = setTimeout(() => {
+    autoScroll();
+  }, 2000);
+});
+
+skills.forEach((skill) => {
+  const skillRate = skill.children;
+  console.dir(skillRate[1]);
+  if (skillRate[1].innerText === "Advanced") {
+    skillRate[1].style.color = "red";
+    skillRate[1].style.fontWeight = "bolder";
+  } else if (skillRate[1].innerText === "Intermediate") {
+    skillRate[1].style.color = "green";
+    skillRate[1].style.fontWeight = "bold";
+  } else {
+    skillRate[1].style.color = "rgba(74, 150, 106, 0.5)";
+  }
+});

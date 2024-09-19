@@ -117,9 +117,9 @@ buttonDarkMode.addEventListener("click", (e) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (localStorage.getItem("theme")) {
-    document.documentElement.classList.add(localStorage.getItem("theme"));
+  if (!localStorage.getItem("theme")) {
+    localStorage.setItem("theme", "light");
+    document.documentElement.classList.add("light");
   }
-  localStorage.setItem("theme", "light");
-  document.documentElement.classList.add("light");
+  document.documentElement.classList.add(localStorage.getItem("theme"));
 });

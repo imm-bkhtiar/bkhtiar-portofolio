@@ -1,7 +1,8 @@
 const hamburgerBtn = document.querySelector(".navContainer .hamburgerMenu");
-const navMenu = document.querySelector(".navContainer .navMenu");
-const list = document.querySelector(".container .projects .list");
 const projects = document.querySelectorAll(".container .projects .list a");
+const buttonDarkMode = document.querySelector(".container button");
+const list = document.querySelector(".container .projects .list");
+const navMenu = document.querySelector(".navContainer .navMenu");
 const skills = document.querySelectorAll(
   ".container .skills .detail table tbody tr "
 );
@@ -90,7 +91,6 @@ list.addEventListener("scrollend", (e) => {
 
 skills.forEach((skill) => {
   const skillRate = skill.children;
-  console.dir(skillRate[1]);
   if (skillRate[1].innerText === "Advanced") {
     skillRate[1].style.color = "red";
     skillRate[1].style.fontWeight = "bolder";
@@ -100,4 +100,26 @@ skills.forEach((skill) => {
   } else {
     skillRate[1].style.color = "rgba(74, 150, 106, 0.5)";
   }
+});
+
+// Button dark
+buttonDarkMode.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (localStorage.getItem("theme") === "light") {
+    document.documentElement.classList.toggle("dark");
+    document.documentElement.classList.toggle("light");
+    localStorage.setItem("theme", "dark");
+  } else {
+    document.documentElement.classList.toggle("light");
+    document.documentElement.classList.toggle("dark");
+    localStorage.setItem("theme", "light");
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("theme")) {
+    document.documentElement.classList.add(localStorage.getItem("theme"));
+  }
+  localStorage.setItem("theme", "light");
+  document.documentElement.classList.add("light");
 });

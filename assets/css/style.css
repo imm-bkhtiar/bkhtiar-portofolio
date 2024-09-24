@@ -167,29 +167,32 @@ a {
   outline: none;
 }
 
-.container > button img:nth-child(1),
-.container > button img:nth-child(2) {
+.container > button > .wrapper {
   position: absolute;
-  top: 0.125rem;
-  left: 0.4rem;
-  background-color: transparent;
-  filter: var(--svg-to-black);
-  width: 80%;
-  height: 80%;
-  object-fit: contain;
+  width: 100%;
+  height: 300%;
+  display: grid;
+  grid-auto-flow: row;
+  justify-content: center;
+  padding: 0.35rem;
+  top: 0;
   transition: all 0.5s cubic-bezier(0.48, 0.09, 0.07, 1.42);
 }
 
+.container > button > .wrapper img {
+  background-color: transparent;
+  filter: var(--svg-to-black);
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
 .container > button img:nth-child(2) {
-  top: 100%;
+  align-self: end;
 }
 
-html.dark .container > button img:nth-child(2) {
-  top: 0.125rem;
-}
-
-html.dark .container > button img:nth-child(1) {
-  top: 100%;
+html.dark .container > button > .wrapper {
+  transform: rotate(180deg);
 }
 
 /* html.darkmode */

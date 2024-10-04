@@ -152,7 +152,7 @@ section[id="home"] > main > img {
     rgb(255, 255, 255)
   );
   background-blend-mode: soft-light;
-  width: 100px;
+  width: 130px;
   border-radius: 5px;
   object-fit: cover;
 }

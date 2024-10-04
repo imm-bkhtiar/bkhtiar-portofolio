@@ -3,52 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <title>Portofolio</title>
   </head>
   <body>
-    <div class="navContainer">
-      <div class="navMenu">
+    <nav>
+      <div class="menu">
         <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#projects">Project</a>
+        <a href="#project">Project</a>
         <a href="#skills">Skills</a>
       </div>
-      <div class="hamburgerMenu">
-        <img src="assets/img/menu-burger-horizontal-svgrepo-com.svg" alt="" />
-      </div>
-    </div>
+      <label class="hamburger">
+        <input type="checkbox" name="hamburger" />
+        <div>
+          <h2>|</h2>
+          <h2>|</h2>
+          <h2>|</h2>
+        </div>
+      </label>
+    </nav>
 
-    <div class="container">
-      <button>
-        <div class="wrapper">
-          <img src="./assets/img/dark mode.svg" alt="Dark Mode" />
-          <img src="./assets/img/light mode.svg" alt="Light Mode" />
+    <section id="home">
+      <main>
+        <img src="./assets/img/its-b.png" alt="Fotoku" />
+        <div class="intro">
+          <h1>imm.bkhtiar</h1>
+          <h4>Web Developer</h4>
         </div>
-      </button>
-      <div class="main" id="home">
-        <img src="assets/img/its-b.png" alt="fotoku" />
-        <div class="namaDanProfesi">
-          <h2>imm.bkhtiar</h2>
-          <h4>Web Developer, Video Editor, Design Grapich</h4>
+        <div class="contact">
+          <img src="./assets/img/github-142-svgrepo-com.svg" alt="Github" />
+          <img src="./assets/img/linkedin-svgrepo-com.svg" alt="Linkedin" />
+          <img src="./assets/img/instagram-svgrepo-com.svg" alt="instagram" />
+          <img src="./assets/img/tiktok-svgrepo-com.svg" alt="Tiktok" />
         </div>
-        <div class="sosmed">
-          <a href="https://www.instagram.com/imm.bkhtiar/"
-            ><img src="assets/img/instagram-svgrepo-com.svg" alt="instagram"
-          /></a>
-          <a href="https://github.com/imm-bkhtiar"
-            ><img src="assets/img/github-142-svgrepo-com.svg" alt="github"
-          /></a>
-          <a href="https://www.linkedin.com/in/bakhtiar-imam-820913303/"
-            ><img src="assets/img/linkedin-svgrepo-com.svg" alt="linkeind"
-          /></a>
-          <a href="https://www.tiktok.com/@itsb.html"
-            ><img src="assets/img/tiktok-svgrepo-com.svg" alt="tiktok"
-          /></a>
-        </div>
-        <a href="#">Download My CV Here</a>
-      </div>
-    </div>
+        <a href="#">Download Resume</a>
+      </main>
+    </section>
 
     <div class="container">
       <div class="about" id="about">

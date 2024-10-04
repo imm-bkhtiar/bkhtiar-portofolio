@@ -1,63 +1,37 @@
-const hamburgerBtn = document.querySelector(".navContainer .hamburgerMenu");
 const projects = document.querySelectorAll(".container .projects .list a");
 const buttonDarkMode = document.querySelector(".container button");
 const list = document.querySelector(".container .projects .list");
-const navMenu = document.querySelector(".navContainer .navMenu");
 const skills = document.querySelectorAll(
   ".container .skills .detail table tbody tr "
 );
-let hiddenTimeOut;
+let navAutoHidden;
 let intervalautoScroll;
 let timeOutAutoScroll;
 list.prepend(projects[projects.length - 1]);
 
-const navbarAction = hamburgerBtn.addEventListener("click", () => {
-  navMenu.classList.toggle("active");
-  hamburgerBtn.style.animation = "active 0.5s ease";
+// New Code
+const hamburger = document.querySelector(".hamburger input");
+const nav = document.querySelector("nav");
+const navMenus = document.querySelectorAll("nav .menu a");
 
-  setTimeout(() => {
-    hamburgerBtn.style.animation = "none";
-  }, 500);
-
-  if (!navMenu.classList.contains("active")) {
-    hidden();
+hamburger.addEventListener("change", (e) => {
+  clearTimeout(navAutoHidden);
+  if (hamburger.checked === false) {
+    navAutoHidden = setTimeout(() => {
+      nav.classList.add("hidden");
+    }, 2000);
   }
 });
 
-const clickDiluarNavbar = document.addEventListener("click", (e) => {
-  if (!navMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
-    navMenu.classList.remove("active");
-    hidden();
-  }
-});
-
-const touchShow = document.addEventListener("touchend", () => {
-  postActionHidden();
-});
-const scrollShow = document.addEventListener("scroll", () => {
-  postActionHidden();
-});
-const clickAndHidden = navMenu.childNodes.forEach((menu) => {
-  menu.addEventListener("click", () => {
-    postActionHidden();
-  });
-});
-
-const hidden = () => {
-  if (hiddenTimeOut) {
-    clearTimeout(hiddenTimeOut);
-  }
-  hiddenTimeOut = setTimeout(() => {
-    if (!navMenu.classList.contains("active")) {
-      navMenu.parentElement.classList.add("hidden");
-    }
+document.addEventListener("touchend", () => {
+  clearTimeout(navAutoHidden);
+  nav.classList.remove("hidden");
+  navAutoHidden = setTimeout(() => {
+    nav.classList.add("hidden");
   }, 5000);
-};
+});
 
-const postActionHidden = () => {
-  navMenu.parentElement.classList.remove("hidden");
-  setTimeout(hidden, 2000);
-};
+// -------------
 
 const autoScroll = () => {
   timeOutAutoScroll = setTimeout(() => {

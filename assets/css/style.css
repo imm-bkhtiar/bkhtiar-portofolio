@@ -4,7 +4,6 @@
   --svg-to-black: invert(0%) sepia(0%) saturate(9%) hue-rotate(239deg)
     brightness(100%) contrast(100%);
   --border: 2px solid red;
-  font-size: 12px;
 }
 /* -------------------
         Navbar       
@@ -14,8 +13,8 @@ nav {
   position: fixed;
   bottom: 4rem;
   right: 2rem;
-  width: 4.125rem;
-  height: 4.125rem;
+  width: 3.5rem;
+  height: 3.5rem;
   transform: translateY(0);
   opacity: 1;
   border-radius: 50%;
@@ -38,6 +37,7 @@ nav > .menu {
 }
 
 nav > .menu a {
+  font-size: 12px;
   position: absolute;
   text-decoration: none;
   color: white;
@@ -63,7 +63,7 @@ nav > .hamburger {
 }
 
 nav > .hamburger > input {
-  width: 35px;
+  width: 75%;
   aspect-ratio: 1/1;
   opacity: 0;
   transform: translate(0.5rem, 0.5rem);
@@ -72,19 +72,20 @@ nav > .hamburger > input {
 }
 
 nav > .hamburger > div {
-  position: absolute;
-  right: 25%;
-  top: 20%;
   width: fit-content;
+  aspect-ratio: 1/1;
+  position: absolute;
   font-size: 1.5rem;
   color: white;
   display: grid;
+  right: 27%;
+  bottom: 25%;
   grid-template-columns: repeat(3, max-content);
-  border-radius: 50%;
   rotate: 90deg;
   transform-origin: center center;
   transition: all 500ms cubic-bezier(0.86, 0.04, 0.15, 1.01);
   place-items: center;
+  font-size: 1rem;
 }
 
 nav > .hamburger > div h2 {
@@ -97,7 +98,7 @@ nav > .hamburger:has(input:checked) > div {
 }
 
 nav > .hamburger > input:checked ~ div h2:nth-child(1) {
-  transform: rotate(-45deg) translateX(-0.5rem);
+  transform: rotate(-45deg) translateX(-0.395rem);
 }
 
 nav > .hamburger > input:checked ~ div h2:nth-child(2) {
@@ -106,7 +107,7 @@ nav > .hamburger > input:checked ~ div h2:nth-child(2) {
 }
 
 nav > .hamburger > input:checked ~ div h2:nth-child(3) {
-  transform: rotate(45deg) translateX(0.5rem);
+  transform: rotate(45deg) translateX(0.395rem);
 }
 
 nav:has(.hamburger > input:checked) > .menu a {

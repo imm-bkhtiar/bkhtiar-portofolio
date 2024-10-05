@@ -78,7 +78,7 @@ nav > .hamburger > div {
   font-size: 1.5rem;
   color: white;
   display: grid;
-  right: 27%;
+  right: 29%;
   bottom: 25%;
   grid-template-columns: repeat(3, max-content);
   rotate: 90deg;
@@ -98,7 +98,7 @@ nav > .hamburger:has(input:checked) > div {
 }
 
 nav > .hamburger > input:checked ~ div h2:nth-child(1) {
-  transform: rotate(-45deg) translateX(-0.395rem);
+  transform: rotate(-45deg) translateX(-0.415rem);
 }
 
 nav > .hamburger > input:checked ~ div h2:nth-child(2) {
@@ -107,7 +107,7 @@ nav > .hamburger > input:checked ~ div h2:nth-child(2) {
 }
 
 nav > .hamburger > input:checked ~ div h2:nth-child(3) {
-  transform: rotate(45deg) translateX(0.395rem);
+  transform: rotate(45deg) translateX(0.415rem);
 }
 
 nav:has(.hamburger > input:checked) > .menu a {

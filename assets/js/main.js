@@ -24,7 +24,10 @@ hamburger.addEventListener("change", (e) => {
 });
 
 document.addEventListener("touchend", () => {
-  clearTimeout(navAutoHidden);
+  if (hamburger.checked) {
+    clearTimeout(navAutoHidden);
+    return;
+  }
   nav.classList.remove("hidden");
   navAutoHidden = setTimeout(() => {
     nav.classList.add("hidden");

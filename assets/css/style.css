@@ -22,11 +22,11 @@ nav {
   bottom: 5%;
   right: 10%;
   border-radius: 50%;
-  transition: all 200ms ease;
+  transition: all 500ms ease;
 }
 
 nav.hide {
-  transform: translateY(1000%);
+  transform: translateY(100%);
   opacity: 0;
 }
 
@@ -136,6 +136,10 @@ nav > .hamburger > input:checked ~ div > div:nth-child(3) {
   transform: rotate(-45deg) translateX(0.1rem) translateY(0.25rem);
 }
 
+h2 {
+  letter-spacing: 0.1rem;
+}
+
 /* -------------------
          Home       
 -------------------- */
@@ -149,7 +153,7 @@ section[id="home"] {
 section[id="home"] > main {
   display: grid;
   justify-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 section[id="home"] > main > img {
@@ -194,7 +198,7 @@ section[id="home"] > main > .contact img {
 }
 
 section[id="home"] > main > a {
-  padding: 0.5rem;
+  font-size: 12px;
 }
 
 @keyframes typing {
@@ -209,48 +213,66 @@ section[id="home"] > main > a {
   }
 }
 
-/* ----------------------------------------------------------- */
-/* About Start */
+/* -------------------
+        About       
+-------------------- */
 
-.container > .abou,
-.container > .project,
-.container > .contact {
-  gap: 2rem;
+section[id="about"] {
+  text-align: center;
+  font-size: 14px;
+  padding: 3rem 1rem 0;
 }
 
-/* About End */
-/* -------------------------------------------------------- */
-/* Project Start */
-
-.container > .projects > .list {
+section[id="about"] > main {
   display: grid;
-  grid-auto-flow: column;
-  gap: 1rem;
-  justify-items: center;
+  gap: 2rem;
+  animation: fadeUp 500ms linear;
+}
+
+/* -------------------
+        Project       
+-------------------- */
+
+section[id="project"] {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+section[id="project"] > main {
+  display: grid;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+section[id="project"] > main > .container {
   overflow-x: scroll;
-  width: 100%;
+  display: grid;
+  aspect-ratio: 16/9;
+  grid-auto-flow: column;
+  grid-auto-columns: 85%;
+  gap: 1rem;
   scroll-snap-type: x mandatory;
+  padding: 1rem;
   scroll-behavior: smooth;
-  padding-block: 1rem;
+  scrollbar-width: none;
+  scroll-snap-stop: always;
 }
 
-.container > .projects > p {
-  color: red;
+section[id="project"] > main > .container a {
+  display: grid;
+  place-items: center;
 }
 
-.list::-webkit-scrollbar {
-  display: none;
-}
-
-.container > .projects img {
+section[id="project"] > main > .container a > img {
   scroll-snap-align: center;
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  aspect-ratio: 16/9;
+  background-color: gray;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   object-fit: cover;
-  width: calc(160px * 1.8);
-  height: calc(90px * 1.8);
-  cursor: pointer;
-  box-shadow: 0px 2px 10px 1px var(--shadow);
 }
-/* Project End */
 /* ----------------------------------------------------- */
 /* Skills Start */
 
@@ -291,7 +313,7 @@ section[id="home"] > main > a {
 
 @keyframes fadeUp {
   0% {
-    transform: translateY(50%);
+    transform: translateY(10%);
     opacity: 0;
   }
   100% {

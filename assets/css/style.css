@@ -7,7 +7,6 @@
 }
 
 body {
-  height: 300vh;
   overflow-x: hidden;
 }
 /* -------------------
@@ -159,11 +158,11 @@ section[id="home"] > main {
 section[id="home"] > main > img {
   display: block;
   aspect-ratio: 3/4;
-  background-color: var(--colorPrimary);
+  background-color: rgba(55, 165, 115, 0.75);
   background-image: linear-gradient(
     to top right,
-    rgb(0, 0, 0),
-    rgb(255, 255, 255)
+    rgba(0, 0, 0, 0.5),
+    rgba(255, 255, 255, 0.5)
   );
   background-blend-mode: soft-light;
   width: 130px;
@@ -186,7 +185,7 @@ section[id="home"] > main > .intro > h1 {
 
 section[id="home"] > main > .contact {
   display: grid;
-  grid-template-columns: repeat(4, max-content);
+  grid-auto-flow: column;
   gap: 1rem;
 }
 
@@ -219,14 +218,17 @@ section[id="home"] > main > a {
 
 section[id="about"] {
   text-align: center;
-  font-size: 14px;
   padding: 3rem 1rem 0;
 }
 
 section[id="about"] > main {
   display: grid;
-  gap: 2rem;
+  gap: 1rem;
   animation: fadeUp 500ms linear;
+}
+
+section[id="about"] > main p {
+  font-size: 14px;
 }
 
 /* -------------------
@@ -234,13 +236,13 @@ section[id="about"] > main {
 -------------------- */
 
 section[id="project"] {
-  padding: 3rem 0;
+  padding: 3rem 0 0;
   text-align: center;
 }
 
 section[id="project"] > main {
   display: grid;
-  gap: 2rem;
+  gap: 0.5rem;
   padding: 1rem 0;
 }
 
@@ -273,43 +275,121 @@ section[id="project"] > main > .container a > img {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   object-fit: cover;
 }
-/* ----------------------------------------------------- */
-/* Skills Start */
 
-.container > .skills > .detail {
-  width: 100%;
-  text-align: start;
+/* -------------------
+        Skills       
+-------------------- */
+
+section[id="skills"] {
+  padding: 3rem 0 0;
+  text-align: center;
 }
 
-.container > .skills > .detail > table td {
-  padding: 0.25rem;
-  border-bottom: 1px solid var(--shadow);
-}
-
-.container > .skills > .detail > table thead tr th {
-  width: 100%;
-}
-
-/* Skills End */
-/* -------------------------------------------------- */
-/* Footer Start */
-
-.container > .footer {
+section[id="skills"] > main {
+  padding: 1.5rem 0 0;
+  display: grid;
+  gap: 1.5rem;
+  background-color: rgba(58, 179, 130, 0.125);
   background-image: linear-gradient(
-    to top,
-    var(--warna200) 20%,
-    var(--warna100)
+    to top right,
+    rgba(0, 0, 0, 0.15),
+    rgb(255, 255, 255, 0.05)
   );
 }
 
-.footer a,
-.footer p {
-  color: var(--white);
-  text-decoration: none;
+section[id="skills"] > main > table,
+section[id="skills"] > main > table th {
+  font-size: 14px;
+  text-align: start;
 }
 
-/* Footer End */
-/* ------------------------------------------------------ */
+section[id="skills"] > main > table {
+  display: grid;
+  max-height: 2.5rem;
+  overflow: hidden;
+  transition: all 1000ms linear;
+}
+
+section[id="skills"] > main > label {
+  position: absolute;
+  right: 1rem;
+  transform: translateY(315%);
+  color: white;
+  animation: upAndDown 2000ms linear infinite alternate;
+}
+
+@keyframes upAndDown {
+  50% {
+    transform: translateY(300%);
+  }
+}
+
+section[id="skills"] > main > label > input {
+  display: none;
+}
+section[id="skills"] > main:has(label > input:checked) table {
+  max-height: 400px;
+}
+
+section[id="skills"] > main > table thead {
+  font-size: 16px;
+  letter-spacing: 0.15rem;
+  background-image: linear-gradient();
+  background-color: rgba(125, 175, 155, 0.75);
+  padding: 0.25rem 0;
+  color: white;
+}
+
+section[id="skills"] > main > table thead tr,
+section[id="skills"] > main > table tbody tr {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding: 0.5rem 1rem;
+}
+
+section[id="skills"] > main > table tbody {
+  display: grid;
+  align-items: center;
+  letter-spacing: 0.1rem;
+}
+
+section[id="skills"] > main > table tbody tr:nth-child(even) {
+  background-color: rgba(125, 175, 155, 0.25);
+}
+section[id="skills"] > main > table tbody tr:not(:nth-child(even)) {
+  background-color: rgba(103, 178, 148, 0.25);
+}
+section[id="skills"] > main > table tbody tr:hover {
+  background-color: white;
+}
+
+/* -------------------
+        Footer       
+-------------------- */
+
+section[id="footer"] {
+  padding: 3rem 0 0 0;
+  font-size: 12px;
+  color: white;
+}
+
+section[id="footer"] > main {
+  display: grid;
+  gap: 0.5rem;
+  padding: 2rem 0;
+  justify-content: center;
+  background-color: rgba(31, 90, 66, 0.75);
+}
+
+section[id="footer"] > main > .socialMedia {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 0.75rem;
+  justify-content: center;
+  gap: 0.5rem;
+  filter: var(--svg-to-white);
+}
 
 @keyframes fadeUp {
   0% {

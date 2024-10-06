@@ -371,7 +371,7 @@ section[id="skills"] > main > table tbody tr:hover {
 section[id="footer"] {
   padding: 3rem 0 0 0;
   font-size: 12px;
-  color: white;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 section[id="footer"] > main {

@@ -247,7 +247,7 @@ section[id="project"] > main {
 }
 
 section[id="project"] > main > .container {
-  overflow-x: scroll;
+  overflow-x: hidden;;
   display: grid;
   aspect-ratio: 16/9;
   grid-auto-flow: column;
@@ -288,13 +288,13 @@ section[id="skills"] {
 section[id="skills"] > main {
   padding: 1.5rem 0 0;
   display: grid;
-  gap: 1.5rem;
-  background-color: rgba(58, 179, 130, 0.125);
-  background-image: linear-gradient(
-    to top right,
-    rgba(0, 0, 0, 0.15),
-    rgb(255, 255, 255, 0.05)
-  );
+  gap: 1rem;
+}
+
+section[id="skills"] > main > h2 {
+  background-color: var(--colorPrimary);
+  padding-block: 1rem;
+  color: white;
 }
 
 section[id="skills"] > main > table,
@@ -304,45 +304,25 @@ section[id="skills"] > main > table th {
 }
 
 section[id="skills"] > main > table {
-  display: grid;
-  max-height: 2.5rem;
   overflow: hidden;
-  transition: all 1000ms linear;
-}
-
-section[id="skills"] > main > label {
-  position: absolute;
-  right: 1rem;
-  transform: translateY(315%);
-  color: white;
-  animation: upAndDown 2000ms linear infinite alternate;
-}
-
-@keyframes upAndDown {
-  50% {
-    transform: translateY(300%);
-  }
-}
-
-section[id="skills"] > main > label > input {
-  display: none;
-}
-section[id="skills"] > main:has(label > input:checked) table {
-  max-height: 400px;
+  padding: .5rem;
 }
 
 section[id="skills"] > main > table thead {
   font-size: 16px;
-  letter-spacing: 0.15rem;
+  letter-spacing: 0.075rem;
   background-image: linear-gradient();
-  background-color: rgba(125, 175, 155, 0.75);
   padding: 0.25rem 0;
-  color: white;
+  font-weight: bolder;
+}
+
+section[id="skills"] > main > table tbody tr:nth-last-child(1), 
+section[id="skills"] > main > table thead tr {
+  border-block-end: 1px solid black;
 }
 
 section[id="skills"] > main > table thead tr,
 section[id="skills"] > main > table tbody tr {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
   display: grid;
   grid-template-columns: 2fr 1fr;
   padding: 0.5rem 1rem;
@@ -354,15 +334,6 @@ section[id="skills"] > main > table tbody {
   letter-spacing: 0.1rem;
 }
 
-section[id="skills"] > main > table tbody tr:nth-child(even) {
-  background-color: rgba(125, 175, 155, 0.25);
-}
-section[id="skills"] > main > table tbody tr:not(:nth-child(even)) {
-  background-color: rgba(103, 178, 148, 0.25);
-}
-section[id="skills"] > main > table tbody tr:hover {
-  background-color: white;
-}
 
 /* -------------------
         Footer       

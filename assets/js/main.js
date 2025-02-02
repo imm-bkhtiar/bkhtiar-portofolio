@@ -8,7 +8,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-document.addEventListener("scroll", (e) => {
+document.addEventListener("scroll", () => {
   if (triggerScroll > window.scrollY) {
     nav.classList.remove("hide");
   } else {
@@ -18,33 +18,73 @@ document.addEventListener("scroll", (e) => {
   triggerScroll = window.scrollY;
 });
 
-// ------ Project -------
+// ------ Project ------
 
-const galleryContainer = document.querySelector("#project main .container ");
-const galleryItems = galleryContainer.querySelectorAll("a");
-galleryContainer.prepend(galleryItems[galleryItems.length - 1]);
-let noTouch = true;
-
-const autoSlideProject = async () => {
-  setTimeout(() => {
-    galleryContainer.scrollLeft += galleryItems[0].clientWidth;
-    galleryContainer.addEventListener("scrollend", (e) => {
-      touch = false;
-      const galleryItems = galleryContainer.querySelectorAll("a");
-      if (galleryContainer.scrollLeft > galleryItems[0].clientWidth * 2) {
-        galleryContainer.appendChild(galleryItems[0]);
-      } else if (
-        galleryContainer.scrollLeft <
-        galleryItems[0].clientWidth - 50
-      ) {
-        galleryContainer.prepend(galleryItems[galleryItems.length - 1]);
-      }
-    });
-    // galleryContainer.addEventListener("touchend", () => {
-    //   console.log(galleryContainer.scrollLeft);
-    //   galleryContainer.scrollLeft = 270;
-    // });
-    requestAnimationFrame(autoSlideProject);
-  }, 5000);
+const reload = () => {
+  return {
+    container: document.querySelector("#project main .container"),
+    items: document.querySelectorAll("#project main .container a"),
+  };
 };
-requestAnimationFrame(autoSlideProject);
+
+reload().container.scrollLeft = reload().items[0].clientWidth;
+
+const autoSlide = () => {
+  const container = reload().container;
+  const items = reload().items;
+  container.scrollLeft += items[0].clientWidth;
+  container.addEventListener("scrollend", () => {
+    container.appendChild(items[0]);
+    container.scroll({
+      left: items[1].clientWidth,
+      behavior: "instant",
+    });
+  });
+};
+
+const time = 5000;
+let interval = setInterval(autoSlide, time);
+let timeout = 0;
+
+let touchPointerStart;
+let touchPointerEnd;
+reload().container.addEventListener("touchstart", (e) => {
+  clearInterval(interval);
+  const currentPointer = e.changedTouches[0].screenX;
+  touchPointerStart = currentPointer;
+});
+
+reload().container.addEventListener("touchend", (e) => {
+  const container = reload().container;
+  const items = reload().items;
+  const currentPointer = e.changedTouches[0].screenX;
+  touchPointerEnd = currentPointer;
+  if (touchPointerStart > touchPointerEnd) {
+    container.scrollLeft += items[0].clientWidth;
+    container.addEventListener("scrollend", () => {
+      container.appendChild(items[0]);
+      container.scroll({
+        left: items[1].clientWidth,
+        behavior: "instant",
+      });
+    });
+  } else {
+    container.scrollLeft -= items[0].clientWidth;
+    container.addEventListener("scrollend", () => {
+      container.prepend(items[items.length - 1]);
+      container.scroll({
+        left: items[1].clientWidth,
+        behavior: "instant",
+      });
+    });
+  }
+  if (timeout === 0) {
+    timeoutInterval = setTimeout(() => {
+      setInterval(autoSlide, time);
+    }, 2000);
+    timeout = 1;
+  } else {
+    clearTimeout(timeoutInterval);
+    timeout = 0;
+  }
+});

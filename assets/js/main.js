@@ -33,8 +33,11 @@ reload().container.scrollLeft = reload().items[0].clientWidth;
 const autoSlide = () => {
   const container = reload().container;
   const items = reload().items;
-  container.scrollLeft += items[0].clientWidth;
-  container.addEventListener("scrollend", () => {
+  container.scroll({
+    left: items[0].clientWidth + items[0].clientWidth,
+    behavior: "smooth"
+  })
+  container.addEventListener("scrollend", () => {  
     container.appendChild(items[0]);
     container.scroll({
       left: items[1].clientWidth,

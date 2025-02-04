@@ -32,10 +32,6 @@ reload().container.scrollLeft = reload().items[0].clientWidth;
 const autoSlide = () => {
   const container = reload().container;
   const items = reload().items;
-    container.scroll({
-      left: +items[0].clientWidth,
-      behavior: "smooth",
-    });
   container.scrollLeft += items[0].clientWidth;
   container.addEventListener("scrollend", () => {
     container.appendChild(items[0]);
@@ -44,10 +40,11 @@ const autoSlide = () => {
       behavior: "instant",
     });
   });
+  setTimeout(autoSlide, time)
 };
 
 const time = 5000;
-let interval = setInterval(autoSlide, time);
+autoSlide()
 let timeout = 0;
 
 let touchPointerStart;
@@ -64,21 +61,27 @@ reload().container.addEventListener("touchend", (e) => {
   const currentPointer = e.changedTouches[0].screenX;
   touchPointerEnd = currentPointer;
   if (touchPointerStart > touchPointerEnd) {
-    container.scrollLeft += items[0].clientWidth;
+      container.scroll({
+        left: +items[0].clientWidth,
+        behavior: "smooth",
+      });
     container.addEventListener("scrollend", () => {
       container.appendChild(items[0]);
       container.scroll({
         left: items[1].clientWidth,
-        behavior: "smooth",
+        behavior: "instant",
       });
     });
   } else {
-    container.scrollLeft -= items[0].clientWidth;
+      container.scroll({
+        left: -items[0].clientWidth,
+        behavior: "smooth",
+      });
     container.addEventListener("scrollend", () => {
       container.prepend(items[items.length - 1]);
       container.scroll({
         left: items[1].clientWidth,
-        behavior: "smooth",
+        behavior: "instant",
       });
     });
   }

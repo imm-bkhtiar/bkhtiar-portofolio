@@ -29,20 +29,26 @@ const reload = () => {
 const time = 5000;
 
 reload().container.scrollLeft = reload().items[0].clientWidth;
+reload().container.prepend(reload().items[reload().items.length - 1]);
+
+let userAgent = navigator.userAgent.toLowerCase();
 
 const autoSlide = () => {
   const container = reload().container;
   const items = reload().items;
-  container.scroll({
-    left: items[0].clientWidth + items[0].clientWidth,
-    behavior: "smooth"
-  })
-  container.addEventListener("scrollend", () => {  
+  container.scrollLeft += items[0].clientWidth;
+  container.addEventListener("scrollend", () => {
     container.appendChild(items[0]);
-    container.scroll({
-      left: items[1].clientWidth,
-      behavior: "instant"
-    });
+    if (
+      userAgent.includes("chrome") &&
+      !userAgent.includes("edg") &&
+      !userAgent.includes("opr")
+    ) {
+      container.scroll({
+        left: items[1].clientWidth,
+        behavior: "instant"
+      })
+    }
   });
   setTimeout(() => {
     requestAnimationFrame(autoSlide);
@@ -50,36 +56,3 @@ const autoSlide = () => {
 };
 
 requestAnimationFrame(autoSlide);
-
-let touchPointerStart;
-let touchPointerEnd;
-reload().container.addEventListener("touchstart", (e) => {
-  const currentPointer = e.changedTouches[0].screenX;
-  touchPointerStart = currentPointer;
-});
-
-reload().container.addEventListener("touchend", (e) => {
-  const container = reload().container;
-  const items = reload().items;
-  const currentPointer = e.changedTouches[0].screenX;
-  touchPointerEnd = currentPointer;
-  if (touchPointerStart > touchPointerEnd) {
-    container.scrollLeft += items[0].clientWidth;
-    container.addEventListener("scrollend", () => {
-      container.appendChild(items[0]);
-      container.scroll({
-        left: items[1].clientWidth,
-        behavior: "instant",
-      });
-    });
-  } else {
-    container.scrollLeft -= items[0].clientWidth;
-    container.addEventListener("scrollend", () => {
-      container.prepend(items[items.length - 1]);
-      container.scroll({
-        left: items[1].clientWidth,
-        behavior: "instant",
-      });
-    });
-  }
-});

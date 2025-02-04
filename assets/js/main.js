@@ -26,7 +26,7 @@ const reload = () => {
     items: document.querySelectorAll("#project main .container a"),
   };
 };
-let autoSlideTimeout;
+const time = 5000;
 
 reload().container.scrollLeft = reload().items[0].clientWidth;
 
@@ -38,20 +38,19 @@ const autoSlide = () => {
     container.appendChild(items[0]);
     container.scroll({
       left: items[1].clientWidth,
-      behavior: "instant",
+      behavior: "instant"
     });
   });
-  autoSlideTimeout = setTimeout(autoSlide, time);
+  setTimeout(() => {
+    requestAnimationFrame(autoSlide);
+  }, time);
 };
 
-const time = 5000;
-autoSlide();
-let timeout = 0;
+requestAnimationFrame(autoSlide);
 
 let touchPointerStart;
 let touchPointerEnd;
 reload().container.addEventListener("touchstart", (e) => {
-  clearTimeout(autoSlideTimeout);
   const currentPointer = e.changedTouches[0].screenX;
   touchPointerStart = currentPointer;
 });
@@ -67,6 +66,7 @@ reload().container.addEventListener("touchend", (e) => {
       container.appendChild(items[0]);
       container.scroll({
         left: items[1].clientWidth,
+        behavior: "instant",
       });
     });
   } else {
@@ -75,16 +75,8 @@ reload().container.addEventListener("touchend", (e) => {
       container.prepend(items[items.length - 1]);
       container.scroll({
         left: items[1].clientWidth,
+        behavior: "instant",
       });
     });
-  }
-  if (timeout === 0) {
-    timeoutInterval = setTimeout(() => {
-      setTimeout(autoSlide, time);
-    }, 2000);
-    timeout = 1;
-  } else {
-    clearTimeout(timeoutInterval);
-    timeout = 0;
   }
 });

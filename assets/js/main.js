@@ -69,7 +69,7 @@ reload().container.addEventListener("touchend", (e) => {
       container.appendChild(items[0]);
       container.scroll({
         left: items[1].clientWidth,
-        behavior: "instant",
+        behavior: "smooth",
       });
     });
   } else {
@@ -78,7 +78,7 @@ reload().container.addEventListener("touchend", (e) => {
       container.prepend(items[items.length - 1]);
       container.scroll({
         left: items[1].clientWidth,
-        behavior: "instant",
+        behavior: "smooth",
       });
     });
   }

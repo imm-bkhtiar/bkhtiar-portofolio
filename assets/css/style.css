@@ -4,6 +4,7 @@
   --svg-to-black: invert(0%) sepia(0%) saturate(9%) hue-rotate(239deg)
     brightness(100%) contrast(100%);
   --border: 2px solid red;
+  overflow-x: hidden;
 }
 
 body {

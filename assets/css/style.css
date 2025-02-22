@@ -1,10 +1,12 @@
 :root {
-  --colorPrimary: rgb(54, 177, 144);
+  --colorPrimary: rgba(100,100,100, 1);
   --svg-to-white: invert(100%) sepia(0%) saturate(0%) hue-rotate(334deg);
   --svg-to-black: invert(0%) sepia(0%) saturate(9%) hue-rotate(239deg)
     brightness(100%) contrast(100%);
   --border: 2px solid red;
   overflow-x: hidden;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: white;
 }
 
 body {
@@ -160,10 +162,10 @@ section[id="home"] > main {
 section[id="home"] > main > img {
   display: block;
   aspect-ratio: 3/4;
-  background-color: rgba(55, 165, 115, 0.75);
+  background-color: rgba(0, 0, 0, 0.2);
   background-image: linear-gradient(
     to top right,
-    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5) 20%,
     rgba(255, 255, 255, 0.5)
   );
   background-blend-mode: soft-light;
@@ -196,10 +198,12 @@ section[id="home"] > main > .contact img {
   overflow: hidden;
   width: 20px;
   aspect-ratio: 1/1;
+  filter: var(--svg-to-white);
 }
 
 section[id="home"] > main > a {
   font-size: 12px;
+  color: rgba(0, 160, 255, 1);
 }
 
 @keyframes typing {
@@ -244,8 +248,9 @@ section[id="project"] {
 
 section[id="project"] > main {
   display: grid;
-  gap: 0.5rem;
+  gap: 2rem;
   padding: 1rem 0;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 
@@ -265,48 +270,75 @@ section[id="skills"] > main {
 }
 
 section[id="skills"] > main > h2 {
-  background-color: var(--colorPrimary);
   padding-block: 1rem;
   color: white;
 }
 
-section[id="skills"] > main > table,
-section[id="skills"] > main > table th {
-  font-size: 14px;
-  text-align: start;
+section[id="skills"] > main > .container {
+  display: grid;
+  gap: .75rem;
+} 
+
+section[id="skills"] > main > .container > .wrapper {
+  display: grid;
+  text-align: left;
+  padding-inline: 2rem;
+  gap: .25rem;
+  transition: .200ms linear;
 }
 
-section[id="skills"] > main > table {
+section[id="skills"] > main > .container > .wrapper:not(:hover) {
+  color: rgba(255, 255, 255, .65);
+  .skill_level div {
+    border: 1px solid rgba(255, 255, 255, .65) ;
+  }
+  .skill_level span {
+    background-color: rgba(255, 255, 255, .65);
+  }
+} 
+
+section[id="skills"] > main > .container > .wrapper:hover {
+ text-shadow: 0 0 3px #fff, 0 0 6px rgba(255, 255, 255, 0.75);
+} 
+
+section[id="skills"] > main > .container > .wrapper:hover .skill_level > div {
+  box-shadow: 0 0 3px 0 white;
+}
+
+section[id="skills"] > main > .container > .wrapper > .skill_name {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+}
+
+section[id="skills"] > main > .container > .wrapper > .skill_level {
+  display: grid;
+  gap: .25rem;
+} 
+
+section[id="skills"] > main > .container > .wrapper > .skill_name p {
+  padding-right: .25rem;
+  font-weight: bold;
+  font-size: 10pt;
+  align-self: end;
+  text-align: end;
+} 
+
+section[id="skills"] > main > .container > .wrapper > .skill_level div {
+  border: 1px solid white;
+  border-radius: 20px;
+  width: 100%;
+  height: 5px;
   overflow: hidden;
-  padding: .5rem;
-}
-
-section[id="skills"] > main > table thead {
-  font-size: 16px;
-  letter-spacing: 0.075rem;
-  background-image: linear-gradient();
-  padding: 0.25rem 0;
-  font-weight: bolder;
-}
-
-section[id="skills"] > main > table tbody tr:nth-last-child(1), 
-section[id="skills"] > main > table thead tr {
-  border-block-end: 1px solid black;
-}
-
-section[id="skills"] > main > table thead tr,
-section[id="skills"] > main > table tbody tr {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  padding: 0.5rem 1rem;
-}
+} 
 
-section[id="skills"] > main > table tbody {
-  display: grid;
-  align-items: center;
-  letter-spacing: 0.1rem;
-}
-
+section[id="skills"] > main > .container > .wrapper > .skill_level > div span {
+  display: inline-block;
+  background-color: white;
+  width: 0%;
+  transition: .5s linear;
+} 
 
 /* -------------------
         Footer       
@@ -315,7 +347,7 @@ section[id="skills"] > main > table tbody {
 section[id="footer"] {
   padding: 3rem 0 0 0;
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, .65);
 }
 
 section[id="footer"] > main {
@@ -323,7 +355,7 @@ section[id="footer"] > main {
   gap: 0.5rem;
   padding: 2rem 0;
   justify-content: center;
-  background-color: rgba(31, 90, 66, 0.75);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 section[id="footer"] > main > .socialMedia {

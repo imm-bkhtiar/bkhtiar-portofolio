@@ -22,8 +22,31 @@ document.addEventListener("scroll", () => {
 // ------ Project ------
 
 slider([
-  './assets/img/project/1.png',
-  './assets/img/project/2.png',
-  './assets/img/project/3.png',
-  './assets/img/project/4.png'
-])
+  "./assets/img/project/1.png",
+  "./assets/img/project/2.png",
+  "./assets/img/project/3.png",
+  "./assets/img/project/4.png",
+]);
+
+// ------ Skill ------
+
+const skills_level = document.querySelectorAll(
+  'section[id="skills"] main .skill_level span',
+);
+
+skills_level.forEach((skill_level) => {
+  const level = skill_level.getAttribute("level");
+  switch (level) {
+    case "expert":
+      skill_level.style.width = "95%";
+      break;
+    case "intermediate":
+      skill_level.style.width = "65%";
+      break;
+    case "beginner":
+      skill_level.style.width = "35%";
+      break;
+    default:
+      break;
+  }
+});

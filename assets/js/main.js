@@ -37,7 +37,7 @@ slider({
     imgPosition: "center",
     center: true,
     shadow:
-      "0px 1px 5px 1px  rgba(255, 255, 255, 0.25), 0px 1px 150px 1px  rgba(155, 155, 155, 0.25)",
+      "0px 1px 10px 1px  rgba(255, 255, 255, 0.15)",
   },
 });
 

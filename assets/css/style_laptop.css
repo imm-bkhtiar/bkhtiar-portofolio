@@ -1,0 +1,161 @@
+@media only screen and (min-width: 640px) {
+  :root {
+    font-size: 12pt;
+  }
+
+
+  /* -------------------
+          Navbar       
+  -------------------- */
+  nav {
+    background-color: hsla(0, 0%, 50%, 0.25);
+    width: 65%;
+    aspect-ratio: 20/1;
+    height: min-content;
+    position: fixed;
+    top: 1rem;
+    display: grid;
+    place-items: center;
+    right: 50%;
+    transform: translateX(50%);
+    border-radius: 1rem;
+    transition: none;
+    z-index: 99;
+    backdrop-filter: blur(5px);
+  }
+
+  nav.hide {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+
+  nav > .menu {
+    font-size: .85rem;
+    width: 75%;
+    top: 0;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    gap: 1rem;
+    text-align: left;
+    max-height: fit-content ;
+    transition: all 200ms linear;
+  }
+
+  nav > .menu a {
+    aspect-ratio: none;
+    text-decoration: none;
+    color: white;
+    display: grid;
+    place-items: center;
+    border-radius: 0%;
+    background-color: transparent;
+    transition: none;
+    opacity: 1;
+  }
+
+  nav > .menu a:nth-child(1),
+  nav > .menu a:nth-child(2),
+  nav > .menu a:nth-child(3),
+  nav > .menu a:nth-child(4) {
+    transform: translateY(0);
+  }
+
+  nav > .hamburger {
+    display: none;
+  }
+
+  /* -------------------
+           Home       
+  -------------------- */
+
+  section[id="home"] {
+    width: 100%;
+    padding: 7.5rem 1rem 1rem 1rem;
+    text-align: left;
+  }
+
+  section[id="home"] > main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, fit-content);
+    align-items: center;
+    justify-items: left;
+    column-gap: 2.5rem;
+  }
+
+  section[id="home"] > main > img {
+    background-color: rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(
+      to top right,
+      rgba(0, 0, 0, 0.5) 20%,
+      rgba(255, 255, 255, 0.5)
+    );
+    width: 175px;
+    border-radius: 15px;
+    justify-self: end;
+    grid-row: 1/4;
+  }
+
+  section[id="home"] > main > .intro {
+    font-size: 1.5rem;
+    align-self: end;
+  }
+
+  section[id="home"] > main > .intro > * {
+    letter-spacing: 0.1rem;
+  }
+
+  section[id="home"] > main > .contact img {
+    width: 25px;
+  }
+
+  section[id="home"] > main > a {
+    align-self: start;
+  }
+
+  /* -------------------
+          About       
+  -------------------- */
+
+  section[id="about"] {
+    text-align: center;
+    padding: 7.5rem 1rem 0;
+    display: grid;
+    place-items: center;
+  }
+
+  section[id="about"] > main {
+    display: grid;
+    gap: 1rem;
+    width: 65%;
+    place-items: center;
+    animation: fadeUp 500ms linear;
+  }
+
+  section[id="about"] > main p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  /* -------------------
+          Footer       
+  -------------------- */
+
+  section[id="footer"] {
+    padding: 3rem 0 0 0;
+    font-size: 9.5pt;
+    color: rgba(255, 255, 255, .65);
+  }
+
+  section[id="footer"] > main > .socialMedia {
+    place-items: center;
+    width: 45%;
+    justify-self: center;
+    justify-content: space-between;
+  }
+
+  section[id="footer"] > main > .socialMedia > * {
+    width: 20px;
+  }
+}

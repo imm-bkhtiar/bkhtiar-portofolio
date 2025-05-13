@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="./lib/css/library.css" />
+    <link rel="stylesheet" href="./lib/css/animation.css" />
+    <link rel="stylesheet" href="./assets/css/style_laptop.css" />
+    <meta name="description" content="Portofolio Bakhtiar Imam Khudori atau kalau pakai nama internet its-b">
     <title>Portofolio</title>
   </head>
   <body>
@@ -27,22 +31,22 @@
 
     <section id="home">
       <main>
-        <img src="./assets/img/its-b.png" alt="Fotoku" />
+        <img animation="fade" src="./assets/img/its-b.webp" alt="Fotoku" />
         <div class="intro">
           <h1>imm.bkhtiar</h1>
-          <h4>Web Developer</h4>
+          <h4 animation="fade top">Web Developer</h4>
         </div>
         <div class="contact">
-          <a href="https://github.com/imm-bkhtiar" target="_blank">
+          <a animation="fade left" href="https://github.com/imm-bkhtiar" target="_blank">
             <img src="./assets/img/svg/github.svg" alt="Github"
           /></a>
           <a
-            href="https://www.linkedin.com/in/bakhtiar-imam-820913303/"
+            animation="fade" href="https://www.linkedin.com/in/bakhtiar-imam-820913303/"
             target="_blank"
           >
             <img src="./assets/img/svg/linkedin.svg" alt="Linkedin"
           /></a>
-          <a href="https://www.instagram.com/imm.bkhtiar/" target="_blank"
+          <a animation="fade right" href="https://www.instagram.com/imm.bkhtiar/" target="_blank"
             ><img src="./assets/img/svg/instagram.svg" alt="instagram"
           /></a>
         </div>
@@ -55,86 +59,34 @@
 
     <section id="about">
       <main>
-        <h2>About</h2>
-        <p>
-          Seorang web developer yang sementara masih bisa membuat web statis,
-          tapi tidak sama sekali terfikirkan kalau saya tidak akan berkembang,
-          nantikan saya dalam 1 tahun ke depan
+        <h2 animation="fade top">About</h2>
+        <p animation="fade bottom">
+          Hai, salam kenal. Nama saya Bakhtiar Imam Khudori, bisa di panggil <span>Bakhtiar</span>. bisa di bilang saya merupakan junior 
+          <span class="job">Frontend Developer</span>. saya juga menjual jasa saya di platform 
+          <a href="https://fastwork.id/user/its.bro">Fastwork</a>. jika anda terarik dengan jasa 
+          seperti pembuatan Landing Page, Profile Company, Portofolio, Product Katalog, dan lainnya. Jangan ragu untuk berdiskusi dengan saya. 
+          Anda bisa menghubungi saya melalui DM <a href="https://www.instagram.com/imm.bkhtiar/">Instagram </a> atau melalu contact 
+          <a href="https://wa.me/+6285856642352">Whatsapp</a>.
         </p>
       </main>
     </section>
 
     <section id="project">
-      <main>
-        <h2>Project</h2>
-        <div class="container" its-b="slider"></div>
+      <main animation="fade">
+        <h2 >Project</h2>
+        <div class="container" its="slider"></div>
       </main>
     </section>
 
     <section id="skills">
-      <main>
+      <main animation="fade">
         <h2>Skills</h2>
-        <div class="container">
-          <div class="wrapper">
-            <div class="skill skill_name">
-              <h4>HTML</h4>
-              <p>Expert</p>
-            </div>
-            <div class="skill_level">
-              <div><span level="expert"></span></div>
-            </div>
-          </div>
-          <div class="wrapper">
-            <div class="skill skill_name">
-              <h4>CSS</h4>
-              <p>Expert</p>
-            </div>
-            <div class="skill_level">
-              <div><span level="expert"></span></div>
-            </div>
-          </div>
-          <div class="wrapper">
-            <div class="skill skill_name">
-              <h4>JavaScript</h4>
-              <p>Expert</p>
-            </div>
-            <div class="skill_level">
-              <div><span level="expert"></span></div>
-            </div>
-          </div>
-          <div class="wrapper">
-            <div class="skill skill_name">
-              <h4>Node JS</h4>
-              <p>beginner</p>
-            </div>
-            <div class="skill_level">
-              <div><span level="beginner"></span></div>
-            </div>
-          </div>
-          <div class="wrapper">
-            <div class="skill skill_name">
-              <h4>PHP</h4>
-              <p>Beginner</p>
-            </div>
-            <div class="skill_level">
-              <div><span level="beginner"></span></div>
-            </div>
-          </div>
-          <div class="wrapper">
-            <div class="skill skill_name">
-              <h4>MySQL</h4>
-              <p>Intermediate</p>
-            </div>
-            <div class="skill_level">
-              <div><span level="intermediate"></span></div>
-            </div>
-          </div>
-        </div>
+        <div class="container" its="skills_meter"></div>
       </main>
     </section>
 
     <section id="footer">
-      <main>
+      <main >
         <div class="socialMedia">
           <a href="https://www.instagram.com/imm.bkhtiar/" target="_blank"
             ><img src="./assets/img/svg/instagram.svg" alt="instagram"

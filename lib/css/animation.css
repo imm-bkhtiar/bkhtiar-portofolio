@@ -1,0 +1,29 @@
+ body {
+  --object-distance: 1rem;
+  --animation-name: ;
+  --animation-duration: ;
+  --animation-timingFunction: ;
+  --animation-fillMode: forwards;
+  --from-right: translateX(var(--object-distance)) ;
+  --from-left: translateX(calc(var(--object-distance) * -1)) ;
+  --from-top: translateY(calc(var(--object-distance) * -1)) ;
+  --from-bottom: translateY(var(--object-distance)) ;
+  /* --from-in: scale(calc(var(--object-distance) / 100)); */
+}
+
+*[animation] {
+  opacity: 0;
+  animation: 
+    var(--animation-name)
+    var(--animation-duration)
+    var(--animation-timingFunction)
+    var(--animation-fillMode);
+  transform: var(--from-opt) ;
+}
+
+@keyframes fade {
+  to {
+    opacity: 1;
+    transform: translate(0,0);
+  }
+}

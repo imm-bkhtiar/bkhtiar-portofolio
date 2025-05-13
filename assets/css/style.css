@@ -4,6 +4,7 @@
   --svg-to-black: invert(0%) sepia(0%) saturate(9%) hue-rotate(239deg)
     brightness(100%) contrast(100%);
   --border: 2px solid red;
+  --colorAccent: hsl(35, 100%, 60%);
   overflow-x: hidden;
   background-color: rgba(0, 0, 0, 0.85);
   color: white;
@@ -167,12 +168,14 @@ section[id="home"] > main > img {
   background-image: linear-gradient(
     to top right,
     rgba(0, 0, 0, 0.5) 20%,
-    rgba(255, 255, 255, 0.5)
+    rgba(255, 255, 255, .5)
   );
   background-blend-mode: soft-light;
   width: 130px;
-  border-radius: 5px;
+  border-radius: .75rem;
   object-fit: cover;
+  border: 2px solid black;
+  box-shadow: 2.5px 2.5px var(--colorAccent);
 }
 
 section[id="home"] > main > .intro > * {
@@ -185,7 +188,7 @@ section[id="home"] > main > .intro > h1 {
   max-width: 0;
   animation: typing 3000ms steps(25, end) infinite alternate,
     blinkCursor 1000ms infinite;
-  border-right: 2px solid rgba(0, 0, 0, 0);
+  border-right: 2px solid hsla(0, 0%, 100%, 1);
 }
 
 section[id="home"] > main > .contact {
@@ -204,7 +207,7 @@ section[id="home"] > main > .contact img {
 
 section[id="home"] > main > a {
   font-size: 12px;
-  color: rgba(0, 160, 255, 1);
+  color: var(--colorAccent);
 }
 
 @keyframes typing {
@@ -215,7 +218,7 @@ section[id="home"] > main > a {
 
 @keyframes blinkCursor {
   50% {
-    border-color: rgba(0, 0, 0, 1);
+    border-color: hsla(0, 0%, 100%, 0);
   }
 }
 
@@ -231,11 +234,20 @@ section[id="about"] {
 section[id="about"] > main {
   display: grid;
   gap: 1rem;
-  animation: fadeUp 500ms linear;
 }
 
 section[id="about"] > main p {
   font-size: 14px;
+  text-align: justify;
+}
+
+section[id="about"] > main p a {
+  color: var(--colorAccent);
+}
+
+section[id="about"] > main p span {
+  color: var(--colorAccent);
+  font-weight: bold;
 }
 
 /* -------------------
@@ -250,7 +262,7 @@ section[id="project"] {
 section[id="project"] > main {
   display: grid;
   gap: 2rem;
-  padding: 1rem 0;
+  padding: 4rem 0;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -274,72 +286,6 @@ section[id="skills"] > main > h2 {
   padding-block: 1rem;
   color: white;
 }
-
-section[id="skills"] > main > .container {
-  display: grid;
-  gap: .75rem;
-} 
-
-section[id="skills"] > main > .container > .wrapper {
-  display: grid;
-  text-align: left;
-  padding-inline: 2rem;
-  gap: .25rem;
-  transition: .200ms linear;
-}
-
-section[id="skills"] > main > .container > .wrapper:not(:hover) {
-  color: rgba(255, 255, 255, .65);
-  .skill_level div {
-    border: 1px solid rgba(255, 255, 255, .65) ;
-  }
-  .skill_level span {
-    background-color: rgba(255, 255, 255, .65);
-  }
-} 
-
-section[id="skills"] > main > .container > .wrapper:hover {
- text-shadow: 0 0 3px #fff, 0 0 6px rgba(255, 255, 255, 0.75);
-} 
-
-section[id="skills"] > main > .container > .wrapper:hover .skill_level > div {
-  box-shadow: 0 0 3px 0 white;
-}
-
-section[id="skills"] > main > .container > .wrapper > .skill_name {
-  display: grid;
-  grid-auto-flow: column;
-  justify-content: space-between;
-}
-
-section[id="skills"] > main > .container > .wrapper > .skill_level {
-  display: grid;
-  gap: .25rem;
-} 
-
-section[id="skills"] > main > .container > .wrapper > .skill_name p {
-  padding-right: .25rem;
-  font-weight: bold;
-  font-size: 10pt;
-  align-self: end;
-  text-align: end;
-} 
-
-section[id="skills"] > main > .container > .wrapper > .skill_level div {
-  border: 1px solid white;
-  border-radius: 20px;
-  width: 100%;
-  height: 5px;
-  overflow: hidden;
-  display: grid;
-} 
-
-section[id="skills"] > main > .container > .wrapper > .skill_level > div span {
-  display: inline-block;
-  background-color: white;
-  width: 0%;
-  transition: .5s linear;
-} 
 
 /* -------------------
         Footer       
@@ -366,15 +312,4 @@ section[id="footer"] > main > .socialMedia {
   justify-content: center;
   gap: 0.5rem;
   filter: var(--svg-to-white);
-}
-
-@keyframes fadeUp {
-  0% {
-    transform: translateY(10%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }

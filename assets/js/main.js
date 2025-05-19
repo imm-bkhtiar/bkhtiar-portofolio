@@ -73,67 +73,70 @@ const laptopSliderOpts = {
 const skills = new Skills_meter
 const mobileSkillMeterOpts = {
   list: {
-      HTML: "Expert",
-      CSS: "Expert",
-      Javascript: "Expert",
-      "Node-Js": "Intermediate",
-      PHP: "Junior",
-      "My-SQL": "Junior",
+    HTML: "Expert",
+    CSS: "Expert",
+    Javascript: "Expert",
+    "Node-Js": "Intermediate",
+    PHP: "Junior",
+    "My-SQL": "Junior",
   },
   style: {
-      gap: "1rem",
-      fontSize: "10pt",
-      ticknes: "5px",
-      border: ".15px solid grey",
-      color: "white",
-      lineColor: "white", 
-      linegap: ".5rem",
-      hoverAnimation: true,
+    gap: "1rem",
+    fontSize: "10pt",
+    ticknes: "5px",
+    border: ".15px solid grey",
+    color: "white",
+    lineColor: "white",
+    linegap: ".5rem",
+    hoverAnimation: true,
   }
 }
 
 const laptopSkillMeterOpts = {
   list: {
-      HTML: "Expert",
-      CSS: "Expert",
-      Javascript: "Expert",
-      "Node-Js": "Intermediate",
-      PHP: "Junior",
-      "My-SQL": "Junior",
+    HTML: "Expert",
+    CSS: "Expert",
+    Javascript: "Expert",
+    "Node-Js": "Intermediate",
+    PHP: "Junior",
+    "My-SQL": "Junior",
   },
   style: {
-      gap: "1rem",
-      fontSize: "10pt",
-      ticknes: "5px",
-      border: ".15px solid grey",
-      color: "white",
-      lineColor: "white", 
-      linegap: ".5rem",
-      hoverAnimation: true,
+    gap: "1rem",
+    fontSize: "10pt",
+    ticknes: "5px",
+    border: ".15px solid grey",
+    color: "white",
+    lineColor: "white",
+    linegap: ".5rem",
+    hoverAnimation: true,
   }
 }
 
 // ------ Animation ------
 
 const animationOpts = {
-  duration: 2000, 
+  duration: 2000,
   objectDistance: "2rem",
   timingFunction: 'ease-out'
 }
 const animation = new Animation(animationOpts)
 animation.createAnimation()
 
-window.addEventListener('resize', (e) => {
+// doesn't work if using mobile browser, couse that browser has url bar on top.
+// it's make the size of heigt change if url bar move above.
+
+/* window.addEventListener('resize', (e) => {
   const screenWidth = window.innerWidth
-  if (screenWidth === 360 ) {
+  if (screenWidth === 360) {
     history.go()
   } else {
     history.go()
   }
-})
+}) */
 
 const screenWidth = window.innerWidth
-if (screenWidth <= 640 ) {
+if (screenWidth <= 640) {
   hamburgerMenu()
   slider.sliderType1(mobileSliderOpts);
   skills.createSkillLevel(mobileSkillMeterOpts)
